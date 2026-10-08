@@ -1,0 +1,57 @@
+{
+  "byo": {
+    "title": "Build Your Own Poke Bowl",
+    "price": "Starts at $8.99",
+    "image": "images/byo.jpg",
+    "description": "Your choice of size, base, proteins, veggies, toppings, sauces, and garnishes."
+  },
+  "signatureBowls": [
+    {
+      "id": 1,
+      "name": "Big Umami",
+      "price": "$17.30 - $21.90",
+      "image": "images/big-umami.png",
+      "description": "Salmon, Ahi Tuna, Avocado, Seaweed Salad, Sweet Onion, Green Onion, Cabbage, Tempura Bits, Furikake, House Shoyu & Waikiki Mayo Sauce"
+    },
+    {
+      "id": 2,
+      "name": "The Poke Box",
+      "price": "$17.30 - $21.90",
+      "image": "images/the-poke-box.png",
+      "description": "Salmon, Ahi Tuna, Edamame, Cucumber, Red Onion, Seaweed Salad, Crab Salad, Tamago, Furikake, House Shoyu & Roasted Sesame Sauce"
+    },
+    {
+      "id": 3,
+      "name": "Rip Tide",
+      "price": "$16.90 - $20.80",
+      "image": "images/rip-tide.png",
+      "description": "Tempura Shrimp, Crab Salad, Masago, Cabbage, Red Pepper, Cucumber, Green Onion, Sesame, Spicy Aioli & Waikiki Mayo Sauce"
+    },
+    {
+      "id": 4,
+      "name": "California Dreaming",
+      "price": "$15.70 - $19.50",
+      "image": "images/california-dreaming.png",
+      "description": "Imitation Crab, Cucumber, Avocado, Edamame, Seaweed Salad, Masago, Tempura Bits, Cabbage, Nori, Spicy Aioli & Tamari Glaze Sauce"
+    },
+    {
+      "id": 5,
+      "name": "Ruffled Up",
+      "price": "$17.70 - $22.90",
+      "image": "images/ruffled-up.png",
+      "description": "Smoked Duck, Tempura Shrimp, Tamago, Sweet Onion, Cabbage, Cucumber, Mandarin Orange, Crispy Onion, Furikake, Cucumber Dill & Tamari Glaze Sauce"
+    },
+    {
+      "id": 6,
+      "name": "Garlic Koa",
+      "price": "$16.90 - $20.80",
+      "image": "images/garlic-koa.png",
+      "description": "Chicken Karaage, Tamago, Edamame, Green Onion, Sweet Corn, Cabbage, Pickled Ginger, Sesame, Togarashi, Nori, Garlic Aioli & Nanban Sauce"
+    }
+  ],
+  "drawerMenu": [
+    { "title": "Sign in", "link": "#signin" },
+    { "title": "Create account", "link": "#signup" },
+    { "title": "Gift cards", "link": "#giftcards" }
+  ]
+}

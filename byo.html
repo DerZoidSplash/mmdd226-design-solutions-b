@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Poké Box - Build Your Own</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Mobile Screen Container -->
+  <div class="mobile-container">
+
+    <!-- Slide-in Side Drawer (Hamburger Menu) -->
+    <div id="drawer-backdrop" class="drawer-backdrop"></div>
+    <aside id="side-drawer" class="side-drawer" aria-label="Navigation Menu">
+      <div class="drawer-header">
+        <img src="images/logo.svg" alt="The Poké Box Logo" class="drawer-logo-img">
+        <button id="close-drawer-btn" class="close-btn" aria-label="Close menu">&times;</button>
+      </div>
+      <nav class="drawer-nav">
+        <a href="#signin" class="drawer-link">Sign in</a>
+        <a href="#create-account" class="drawer-link">Create account</a>
+        <a href="#gift-cards" class="drawer-link">Gift cards</a>
+      </nav>
+    </aside>
+
+    <!-- Top Header -->
+    <header class="site-header">
+      <button id="hamburger-btn" class="icon-btn hamburger-btn" aria-label="Open menu">
+        &#9776;
+      </button>
+
+      <div class="logo-container">
+        <a href="index.html">
+          <img src="images/logo.svg" alt="The Poké Box Logo" class="header-logo-img">
+        </a>
+      </div>
+
+      <button class="icon-btn cart-btn" aria-label="Cart" onclick="window.location.href='cart.html'">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="9" cy="21" r="1"></circle>
+          <circle cx="20" cy="21" r="1"></circle>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+        </svg>
+      </button>
+    </header>
+
+    <!-- Sticky BYO Header / Banner -->
+    <div class="byo-sticky-header">
+      <div class="byo-header-top">
+        <a href="index.html" class="close-x-btn" aria-label="Return to menu">&times;</a>
+        <div class="byo-header-titles">
+          <h1 class="byo-title">Build Your Own</h1>
+          <span class="byo-subtitle">Starts at $8.99</span>
+          <div class="qty-counter">
+            <button type="button" class="qty-btn minus-btn" aria-label="Decrease quantity">-</button>
+            <span class="qty-num">1</span>
+            <button type="button" class="qty-btn plus-btn" aria-label="Increase quantity">+</button>
+          </div>
+        </div>
+      </div>
+      <p class="byo-desc">Your choice of size, base, proteins, veggies, toppings, sauces, and garnishes.</p>
+      <!-- Horizontal Stage Navigation -->
+      <div class="stage-nav-container">
+        <button type="button" class="stage-btn active" data-target="step-1">1. Size</button>
+        <button type="button" class="stage-btn" data-target="step-2">2. Base</button>
+        <button type="button" class="stage-btn" data-target="step-3">3. Protein</button>
+        <button type="button" class="stage-btn" data-target="step-4">4. Veggies</button>
+        <button type="button" class="stage-btn" data-target="step-5">5. Toppings</button>
+        <button type="button" class="stage-btn" data-target="step-6">6. Sauce</button>
+        <button type="button" class="stage-btn" data-target="step-7">7. Garnish</button>
+      </div>
+    </div>
+
+    <!-- Main Scrollable Steps Content -->
+    <main class="main-content byo-content">
+
+      <!-- Step 1: Select a size -->
+            <div class="step-content active" id="step-1">
+        <h2 class="step-header">Select a Size</h2>
+        <div class="step-body">
+
+          <div class="input-group">
+            <select class="custom-select" id="size-select">
+              <option value="" disabled selected>Select one</option>
+              <option value="small" data-price="$8.99" data-desc="Your choice of size, base, proteins, two veggies, one topping, sauces, and garnishes.">Small bowl - $8.99</option>
+              <option value="regular" data-price="$10.99" data-desc="Your choice of size, base, proteins, three veggies, two toppings, sauces, and garnishes.">Regular bowl - $10.99</option>
+              <option value="large" data-price="$13.29" data-desc="Your choice of size, base, proteins, four veggies, three toppings, sauces, and garnishes.">Large bowl - $13.29</option>
+            </select>
+          </div>
+          
+        <div class="step-actions">
+            <button type="button" class="nav-btn next-btn" data-next="step-2">Next</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2: Pick Base (max 2) -->
+            <div class="step-content" id="step-2">
+        <h2 class="step-header">Pick Base (max 2)</h2>
+        <div class="step-body">
+
+          <div class="checkbox-group max-limit-group" data-max="2">
+            <label class="checkbox-label">
+              <input type="checkbox" name="base" value="sushi-rice">
+              <span>Sushi Rice</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="base" value="grain-blend">
+              <span>Grain Blend</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="base" value="zucchini-noodles">
+              <span>Zucchini Noodles</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="base" value="mixed-greens">
+              <span>Mixed Greens</span>
+            </label>
+          </div>
+          
+        <div class="step-actions">
+            <button type="button" class="nav-btn prev-btn" data-prev="step-1">Prev</button>
+            <button type="button" class="nav-btn next-btn" data-next="step-3">Next</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3: Choose Protein -->
+            <div class="step-content" id="step-3">
+        <h2 class="step-header">Choose Protein</h2>
+        <div class="step-body">
+
+          <div class="checkbox-group">
+            <label class="checkbox-label">
+              <input type="checkbox" name="protein" value="salmon" data-extra="3.70">
+              <span>Salmon - $3.70</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="protein" value="ahi-tuna" data-extra="3.70">
+              <span>Ahi Tuna - $3.70</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="protein" value="imitation-crab" data-extra="2.70">
+              <span>Imitation Crab - $2.70</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="protein" value="tofu" data-extra="3.00">
+              <span>Tofu - $3.00</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="protein" value="sukiyaki-beef" data-extra="3.30">
+              <span>Sukiyaki Beef - $3.30</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="protein" value="duck" data-extra="4.80">
+              <span>Duck - $4.80</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="protein" value="tempura-shrimp" data-extra="3.30">
+              <span>Tempura Shrimp - $3.30</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="protein" value="japanese-fried-chicken" data-extra="3.30">
+              <span>Japanese Fried Chicken - $3.30</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="protein" value="grilled-chicken" data-extra="3.30">
+              <span>Grilled Chicken - $3.30</span>
+            </label>
+          </div>
+          
+        <div class="step-actions">
+            <button type="button" class="nav-btn prev-btn" data-prev="step-2">Prev</button>
+            <button type="button" class="nav-btn next-btn" data-next="step-4">Next</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4: Add veggies -->
+            <div class="step-content" id="step-4">
+        <h2 class="step-header">Add Veggies <span class="veggie-limit-text" style="font-size: 0.8em; color: #666;"></span></h2>
+        <div class="step-body">
+
+          <div class="checkbox-group">
+            <label class="checkbox-label">
+              <input type="checkbox" name="veggies" value="edamame">
+              <span>Edamame</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="veggies" value="red-onion">
+              <span>Red Onion</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="veggies" value="carrot">
+              <span>Carrot</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="veggies" value="zucchini">
+              <span>Zucchini</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="veggies" value="sweet-corn">
+              <span>Sweet Corn</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="veggies" value="cabbage">
+              <span>Cabbage</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="veggies" value="cucumber">
+              <span>Cucumber</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="veggies" value="red-pepper">
+              <span>Red Pepper</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="veggies" value="sweet-onion">
+              <span>Sweet Onion</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="veggies" value="kale">
+              <span>Kale</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="veggies" value="mixed-greens">
+              <span>Mixed Greens</span>
+            </label>
+          </div>
+          
+        <div class="step-actions">
+            <button type="button" class="nav-btn prev-btn" data-prev="step-3">Prev</button>
+            <button type="button" class="nav-btn next-btn" data-next="step-5">Next</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 5: Add toppings -->
+            <div class="step-content" id="step-5">
+        <h2 class="step-header">Add Toppings <span class="topping-limit-text" style="font-size: 0.8em; color: #666;"></span></h2>
+        <div class="step-body">
+
+          <div class="checkbox-group">
+            <label class="checkbox-label">
+              <input type="checkbox" name="toppings" value="seaweed-salad">
+              <span>Seaweed Salad</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="toppings" value="imitation-crab-salad">
+              <span>Imitation Crab Salad</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="toppings" value="tempura-bits">
+              <span>Tempura Bits</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="toppings" value="avocado">
+              <span>Avocado</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="toppings" value="mandarin-orange">
+              <span>Mandarin Orange</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="toppings" value="shitake-mushrooms">
+              <span>Shitake Mushrooms</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="toppings" value="pea-shoots">
+              <span>Pea Shoots</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="toppings" value="egg">
+              <span>Egg</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="toppings" value="ramen-egg">
+              <span>Ramen Egg</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="toppings" value="caplin-fish-roe">
+              <span>Caplin Fish Roe</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="toppings" value="dried-seaweed">
+              <span>Dried Seaweed</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="toppings" value="beet-slaw">
+              <span>Beet Slaw</span>
+            </label>
+          </div>
+          
+        <div class="step-actions">
+            <button type="button" class="nav-btn prev-btn" data-prev="step-4">Prev</button>
+            <button type="button" class="nav-btn next-btn" data-next="step-6">Next</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 6: Add sauce -->
+            <div class="step-content" id="step-6">
+        <h2 class="step-header">Add Sauce</h2>
+        <div class="step-body">
+
+          <div class="checkbox-group">
+            <label class="checkbox-label">
+              <input type="checkbox" name="sauces" value="roasted-sesame">
+              <span>Roasted Sesame</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="sauces" value="house-shoyu">
+              <span>House Shoyu</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="sauces" value="spicy-aioli">
+              <span>Spicy Aioli</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="sauces" value="tabasco-hot-sauce">
+              <span>Tabasco Hot Sauce</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="sauces" value="waikiki-mayonaise">
+              <span>Waikiki Mayonaise</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="sauces" value="balsamic-bomb">
+              <span>Balsamic Bomb</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="sauces" value="island-mango">
+              <span>Island Mango</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="sauces" value="cucumber-dill">
+              <span>Cucumber Dill</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="sauces" value="creamy-wasabi">
+              <span>Creamy Wasabi</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="sauces" value="tamari-glaze">
+              <span>Tamari Glaze</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="sauces" value="sweet-ginger">
+              <span>Sweet Ginger</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="sauces" value="wasabi-citrus">
+              <span>Wasabi Citrus</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="sauces" value="garlic-aioli">
+              <span>Garlic Aioli</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="sauces" value="gluten-free-soy">
+              <span>Gluten-free Soy</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="sauces" value="gluten-free-spicy-mayo">
+              <span>Gluten-free Spicy Mayo</span>
+            </label>
+          </div>
+          
+        <div class="step-actions">
+            <button type="button" class="nav-btn prev-btn" data-prev="step-5">Prev</button>
+            <button type="button" class="nav-btn next-btn" data-next="step-7">Next</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 7: Add Garnish -->
+            <div class="step-content" id="step-7">
+        <h2 class="step-header">Add Garnish</h2>
+        <div class="step-body">
+
+          <div class="checkbox-group">
+            <label class="checkbox-label">
+              <input type="checkbox" name="garnishes" value="sesame-seeds">
+              <span>Sesame Seeds</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="garnishes" value="furikake">
+              <span>Furikake</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="garnishes" value="coconut">
+              <span>Coconut</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="garnishes" value="togarashi">
+              <span>Togarashi</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="garnishes" value="crispy-onion">
+              <span>Crispy Onion</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="garnishes" value="green-onion">
+              <span>Green Onion</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="garnishes" value="jalapeno">
+              <span>Jalapeno</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="garnishes" value="pickled-ginger">
+              <span>Pickled Ginger</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="garnishes" value="chili-flakes">
+              <span>Chili Flakes</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="garnishes" value="pumpkin-seeds">
+              <span>Pumpkin Seeds</span>
+            </label>
+          </div>
+          
+        <div class="step-actions">
+            <button type="button" class="nav-btn prev-btn" data-prev="step-6">Prev</button>
+            <button type="button" class="nav-btn next-btn" style="background-color: var(--color-pink);" data-next="step-1" onclick="document.querySelector('.add-to-cart-btn').click()">Done</button>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- Sticky Bottom Action Footer -->
+    <footer class="byo-bottom-bar">
+      <div class="see-order-row">
+        <button type="button" class="see-order-btn">
+          <span>See Order</span>
+          <span class="chevron-up">&#9650;</span>
+        </button>
+        <span class="order-price">$8.99</span>
+      </div>
+      <div class="order-summary-content"></div>
+      <button type="button" class="add-to-cart-btn">Add to Cart</button>
+    </footer>
+
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

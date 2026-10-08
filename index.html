@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Poké Box - Order Menu</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+  <!-- Mobile Screen Container -->
+  <div class="mobile-container">
+
+    <!-- Slide-in Side Drawer (Hamburger Menu) -->
+    <div id="drawer-backdrop" class="drawer-backdrop"></div>
+    <aside id="side-drawer" class="side-drawer" aria-label="Navigation Menu">
+      <div class="drawer-header">
+        <img src="images/logo.svg" alt="The Poké Box Logo" class="drawer-logo-img">
+        <button id="close-drawer-btn" class="close-btn" aria-label="Close menu">&times;</button>
+      </div>
+      <nav class="drawer-nav">
+        <a href="#signin" class="drawer-link">Sign in</a>
+        <a href="#create-account" class="drawer-link">Create account</a>
+        <a href="#gift-cards" class="drawer-link">Gift cards</a>
+      </nav>
+    </aside>
+
+    <!-- Top Header -->
+    <header class="site-header">
+      <!-- Hamburger Icon -->
+      <button id="hamburger-btn" class="icon-btn hamburger-btn" aria-label="Open menu">
+        &#9776;
+      </button>
+
+      <!-- Logo -->
+      <div class="logo-container">
+        <img src="images/logo.svg" alt="The Poké Box Logo" class="header-logo-img">
+      </div>
+
+      <!-- Cart Icon Only -->
+      <button class="icon-btn cart-btn" aria-label="Cart" onclick="window.location.href='cart.html'">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="9" cy="21" r="1"></circle>
+          <circle cx="20" cy="21" r="1"></circle>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+        </svg>
+      </button>
+    </header>
+
+    <!-- Main Scrollable Content -->
+    <main class="main-content">
+      <h1 class="page-title">Menu</h1>
+
+      <!-- BYO Section -->
+      <section class="byo-section">
+        <h2 class="section-title">Build Your Own Poke Bowl</h2>
+        <a href="byo.html" class="byo-card-link">
+          <div class="byo-card">
+            <div class="bowl-img-wrapper"><img src="images/byo.jpg" alt="Build Your Own Poke Bowl" class="bowl-img"
+                onerror="this.parentElement.outerHTML='<div class=&quot;placeholder-box&quot;></div>'"></div>
+            <div class="bowl-price">Starts at $8.99</div>
+            <p id="byo-text" class="lorem-text">Your choice of size, base, proteins, veggies, toppings, sauces, and
+              garnishes.</p>
+          </div>
+        </a>
+      </section>
+
+      <!-- Signature Bowls Section -->
+      <section class="signature-section">
+        <h2 class="section-title">Signature Bowls</h2>
+        <div id="signature-bowls-grid" class="bowls-grid">
+          <!-- Rendered dynamically from js/data.json -->
+          <div class="bowl-card">
+            <div class="bowl-img-wrapper"><img src="images/big-umami.png" alt="Big Umami" class="bowl-img"
+                onerror="this.parentElement.outerHTML='<div class=&quot;placeholder-box&quot;></div>'"></div>
+            <h3 class="bowl-name">Big Umami</h3>
+            <div class="bowl-price">$17.30 - $21.90</div>
+            <p class="lorem-text">Salmon, Ahi Tuna, Avocado, Seaweed Salad, Sweet Onion, Green Onion, Cabbage, Tempura
+              Bits, Furikake, House Shoyu & Waikiki Mayo Sauce</p>
+          </div>
+          <div class="bowl-card">
+            <div class="bowl-img-wrapper"><img src="images/the-poke-box.png" alt="The Poke Box" class="bowl-img"
+                onerror="this.parentElement.outerHTML='<div class=&quot;placeholder-box&quot;></div>'"></div>
+            <h3 class="bowl-name">The Poke Box</h3>
+            <div class="bowl-price">$17.30 - $21.90</div>
+            <p class="lorem-text">Salmon, Ahi Tuna, Edamame, Cucumber, Red Onion, Seaweed Salad, Crab Salad, Tamago,
+              Furikake, House Shoyu & Roasted Sesame Sauce</p>
+          </div>
+          <div class="bowl-card">
+            <div class="bowl-img-wrapper"><img src="images/rip-tide.png" alt="Rip Tide" class="bowl-img"
+                onerror="this.parentElement.outerHTML='<div class=&quot;placeholder-box&quot;></div>'"></div>
+            <h3 class="bowl-name">Rip Tide</h3>
+            <div class="bowl-price">$16.90 - $20.80</div>
+            <p class="lorem-text">Tempura Shrimp, Crab Salad, Masago, Cabbage, Red Pepper, Cucumber, Green Onion,
+              Sesame, Spicy Aioli & Waikiki Mayo Sauce</p>
+          </div>
+          <div class="bowl-card">
+            <div class="bowl-img-wrapper"><img src="images/california-dreaming.png" alt="California Dreaming"
+                class="bowl-img" onerror="this.parentElement.outerHTML='<div class=&quot;placeholder-box&quot;></div>'">
+            </div>
+            <h3 class="bowl-name">California Dreaming</h3>
+            <div class="bowl-price">$15.70 - $19.50</div>
+            <p class="lorem-text">Imitation Crab, Cucumber, Avocado, Edamame, Seaweed Salad, Masago, Tempura Bits,
+              Cabbage, Nori, Spicy Aioli & Tamari Glaze Sauce</p>
+          </div>
+          <div class="bowl-card">
+            <div class="bowl-img-wrapper"><img src="images/ruffled-up.png" alt="Ruffled Up" class="bowl-img"
+                onerror="this.parentElement.outerHTML='<div class=&quot;placeholder-box&quot;></div>'"></div>
+            <h3 class="bowl-name">Ruffled Up</h3>
+            <div class="bowl-price">$17.70 - $22.90</div>
+            <p class="lorem-text">Smoked Duck, Tempura Shrimp, Tamago, Sweet Onion, Cabbage, Cucumber, Mandarin Orange,
+              Crispy Onion, Furikake, Cucumber Dill & Tamari Glaze Sauce</p>
+          </div>
+          <div class="bowl-card">
+            <div class="bowl-img-wrapper"><img src="images/garlic-koa.png" alt="Garlic Koa" class="bowl-img"
+                onerror="this.parentElement.outerHTML='<div class=&quot;placeholder-box&quot;></div>'"></div>
+            <h3 class="bowl-name">Garlic Koa</h3>
+            <div class="bowl-price">$16.90 - $20.80</div>
+            <p class="lorem-text">Chicken Karaage, Tamago, Edamame, Green Onion, Sweet Corn, Cabbage, Pickled Ginger,
+              Sesame, Togarashi, Nori, Garlic Aioli & Nanban Sauce</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>
