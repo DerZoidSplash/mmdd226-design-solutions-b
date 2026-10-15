@@ -400,119 +400,54 @@ body {
   min-height: 0;
 }
 
-/* Stage Navigation Bar */
-.stage-nav-container {
-  display: flex;
-  overflow-x: auto;
-  gap: 12px;
-  padding: 4px 0 8px 0;
-  margin-top: 12px;
-  /* Hide scrollbar for a cleaner look */
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-}
-
-.stage-nav-container::-webkit-scrollbar {
-  display: none;
-}
-
-.stage-btn {
-  background: none;
-  border: 2px solid var(--color-black);
-  border-radius: 8px;
-  padding: 8px 16px;
-  font-family: var(--font-family);
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--color-black);
-  cursor: pointer;
-  white-space: nowrap;
-  background-color: #ffffff;
-  transition: all 0.2s ease;
-}
-
-.stage-btn.active {
-  background-color: var(--color-pink);
-}
-
-.stage-btn:hover {
-  background-color: rgba(242, 160, 155, 0.5); /* lighter pink on hover */
-}
-
-.stage-btn.active:hover {
-  background-color: var(--color-pink-hover);
-}
-
-/* Step Content Cards */
-.step-content {
-  display: none;
+/* Accordion Step Cards */
+.accordion-step {
   border: 2px solid var(--color-black);
   border-radius: 8px;
   background-color: var(--bg-main);
-  flex-direction: column;
-  padding: 16px;
-  gap: 16px;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
 }
 
-.step-content.active {
-  display: flex;
-  animation: fadeIn 0.3s ease;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(5px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.step-header {
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin-bottom: 8px;
-  border-bottom: 2px solid var(--color-black);
-  padding-bottom: 8px;
-}
-
-.step-body {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.step-actions {
+.accordion-header {
+  width: 100%;
+  padding: 14px 16px;
+  background: none;
+  border: none;
   display: flex;
   justify-content: space-between;
-  margin-top: 16px;
-  gap: 16px;
-}
-
-.nav-btn {
-  padding: 10px 24px;
-  border: 2px solid var(--color-black);
-  border-radius: 8px;
-  font-family: var(--font-family);
-  font-weight: 700;
-  font-size: 1rem;
-  color: var(--color-black);
+  align-items: center;
   cursor: pointer;
-  transition: background-color 0.2s ease;
-  flex: 1;
-  text-align: center;
+  font-family: var(--font-family);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-black);
+  text-align: left;
 }
 
-.prev-btn {
-  background-color: #ffffff;
+.accordion-header:hover {
+  background-color: rgba(0, 0, 0, 0.03);
 }
 
-.prev-btn:hover {
-  background-color: #f0f0f0;
+.chevron-icon {
+  font-size: 0.9rem;
 }
 
-.next-btn {
-  background-color: var(--color-pink);
+.accordion-body {
+  display: none;
+  padding: 0 16px 16px 16px;
+  flex-direction: column;
+  gap: 16px;
+  border-top: 1.5px solid #eee;
 }
 
-.next-btn:hover {
-  background-color: var(--color-pink-hover);
+/* When accordion step is open */
+.accordion-step.open .accordion-body {
+  display: flex;
+}
+
+.accordion-step.open .accordion-header {
+  border-bottom: 2px solid var(--color-black);
 }
 
 /* Dropdown & Inputs */
@@ -549,6 +484,63 @@ body {
   transition: opacity 0.2s ease;
 }
 
+.option-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.option-row .checkbox-label {
+  border-bottom: none;
+  flex: 1;
+}
+
+.option-row:last-child {
+  border-bottom: none;
+}
+
+.item-qty-stepper {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  margin-left: 8px;
+}
+
+.item-qty-stepper.active {
+  display: flex;
+}
+
+.item-qty-btn {
+  width: 24px;
+  height: 24px;
+  border: 1.5px solid var(--color-black);
+  border-radius: 4px;
+  background-color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-black);
+  padding: 0;
+  line-height: 1;
+  transition: background-color 0.2s ease;
+}
+
+.item-qty-btn:hover {
+  background-color: var(--color-pink);
+}
+
+.item-qty-count {
+  font-size: 0.9rem;
+  font-weight: 700;
+  min-width: 14px;
+  text-align: center;
+  color: var(--color-black);
+}
+
 .checkbox-label.disabled {
   opacity: 0.4;
   cursor: not-allowed;
@@ -567,6 +559,93 @@ body {
   height: 18px;
   accent-color: var(--color-pink);
   cursor: pointer;
+}
+
+/* DONE & Prev Navigation Buttons */
+.step-nav-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.done-btn,
+.prev-btn {
+  align-self: center;
+  padding: 8px 24px;
+  border: 2px solid var(--color-black);
+  border-radius: 20px;
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.done-btn {
+  background-color: var(--color-pink);
+  color: var(--color-black);
+}
+
+.done-btn:hover {
+  background-color: var(--color-pink-hover);
+}
+
+.prev-btn {
+  background-color: #ffffff;
+  color: var(--color-black);
+}
+
+.prev-btn:hover {
+  background-color: #eeeeee;
+}
+
+/* Horizontal Stages Scrollbar */
+.stages-scrollbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 6px 2px 4px 2px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+.stages-scrollbar::-webkit-scrollbar {
+  height: 4px;
+}
+
+.stages-scrollbar::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+.stage-tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 14px;
+  background-color: #ffffff;
+  color: var(--color-black);
+  border: 2px solid var(--color-black);
+  border-radius: 6px;
+  font-family: var(--font-family);
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.stage-tab:hover {
+  background-color: #f7f7f7;
+}
+
+.stage-tab.active {
+  background-color: var(--color-pink);
+  box-shadow: 0 2px 0 var(--color-black);
 }
 
 /* Sticky Bottom Action Footer */
@@ -704,6 +783,37 @@ body {
 .summary-item-box.unchecked {
   background-color: transparent;
   color: transparent;
+}
+
+.summary-item-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+
+.summary-item-stepper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+}
+
+.summary-item-stepper .item-qty-btn {
+  width: 24px;
+  height: 24px;
+  font-size: 1rem;
+}
+
+.summary-item-stepper .item-qty-count {
+  font-size: 0.95rem;
+  font-weight: 700;
+  min-width: 14px;
+  text-align: center;
+}
+
+.summary-item.deselected .summary-item-stepper {
+  display: none;
 }
 
 .summary-item.empty-text {
