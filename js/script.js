@@ -111,25 +111,11 @@ function setupAccordionLogic() {
     const nextBtn = step.querySelector('.next-btn') || step.querySelector('.done-btn');
     const prevBtn = step.querySelector('.prev-btn');
 
-    // Header click: expand or collapse THIS step independently
+    // Header click in stage mode ensures step remains active
     if (header) {
       header.addEventListener('click', () => {
-        const isOpen = step.classList.contains('open');
-        const chevron = step.querySelector('.chevron-icon');
-        
-        if (isOpen) {
-          step.classList.remove('open');
-          if (chevron) chevron.innerHTML = '&#9660;';
-        } else {
-          // Collapse other steps so only one step is focused
-          accordionSteps.forEach(s => {
-            s.classList.remove('open');
-            const c = s.querySelector('.chevron-icon');
-            if (c) c.innerHTML = '&#9660;';
-          });
-          step.classList.add('open');
-          if (chevron) chevron.innerHTML = '&#9650;';
-          updateActiveStage(step.id);
+        if (!step.classList.contains('open')) {
+          goToStep(step);
         }
       });
     }

@@ -400,54 +400,45 @@ body {
   min-height: 0;
 }
 
-/* Accordion Step Cards */
+/* Step Sections (Only selected stage is displayed) */
 .accordion-step {
-  border: 2px solid var(--color-black);
-  border-radius: 8px;
+  display: none;
+  border: none;
   background-color: var(--bg-main);
-  transition: all 0.2s ease;
   flex-shrink: 0;
+}
+
+.accordion-step.open {
+  display: block;
 }
 
 .accordion-header {
   width: 100%;
-  padding: 14px 16px;
+  padding: 0 0 12px 0;
   background: none;
   border: none;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  cursor: pointer;
   font-family: var(--font-family);
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: var(--color-black);
   text-align: left;
-}
-
-.accordion-header:hover {
-  background-color: rgba(0, 0, 0, 0.03);
+  border-bottom: 2px solid var(--color-black);
+  margin-bottom: 14px;
 }
 
 .chevron-icon {
-  font-size: 0.9rem;
+  display: none;
 }
 
 .accordion-body {
-  display: none;
-  padding: 0 16px 16px 16px;
+  display: flex;
+  padding: 0;
   flex-direction: column;
   gap: 16px;
-  border-top: 1.5px solid #eee;
-}
-
-/* When accordion step is open */
-.accordion-step.open .accordion-body {
-  display: flex;
-}
-
-.accordion-step.open .accordion-header {
-  border-bottom: 2px solid var(--color-black);
+  border-top: none;
 }
 
 /* Dropdown & Inputs */
